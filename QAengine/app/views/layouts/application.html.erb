@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QAengine</title>
+    <title> <%= yield(:title)%></title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css" />
+	<script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  	<%= render 'layouts/header' %>
+  		<% flash.each do |message_type, message| %>
+  			<div class="alert alert-<%=message_type%>"><%= message%></div>
+  		<% end %>
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--2-col">
+		  	<%= render 'layouts/header_sidebar' %>
+		</div>
+		<div class="mdl-cell mdl-cell--8-col">
+		    <%= yield %>
+	    </div>
+		<div class="mdl-cell mdl-cell--2-col">
+		  	<%= render 'layouts/header_right_sidebar' %>
+	    </div>
+  	</div>
   </body>
 </html>

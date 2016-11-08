@@ -13,3 +13,58 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* sidebar menu list */
+
+/*body, html {height:100%;}*/
+.first-border {
+	border-right: 1px solid gray;
+	height: 100%;
+	padding: 10px;
+}
+
+.sidebar-menu {
+	padding-left: 10px;
+}
+
+.sidebar-menu-list {
+	list-style: none;
+}
+.sidebar-menu-list-items {
+	font-family: inherit;
+	font-size: 15px;
+	width: 95%;
+	height: 50px;
+	padding-top: 15px;
+	margin-top: 10px;	
+	margin-right: 10px;
+}
+
+
+.right-first-border {
+	border-left: 1px solid gray;
+	height: 100%;
+	padding: 10px;
+}
+
+.right-sidebar-menu {
+	padding-left: 10px;
+}
+
+.right-sidebar-menu-list {
+	list-style: none;
+}
+.right-sidebar-menu-list-items {
+	font-family: inherit;
+	font-size: 15px;
+	width: 95%;
+	height: 50px;
+	padding-top: 15px;
+	margin-top: 10px;	
+	margin-right: 10px;
+}
+
+
+

@@ -1,0 +1,39 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Sign up Page */
+
+.mdl-layout {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.mdl-color {
+	background-color:#2f364a; 
+}
+
+.mdl-layout__content {
+    padding: 24px;
+}
+
+.mdl-card {
+	width: 500px;
+}
+
+.mdl-card__title {
+	padding-left: 35%;	
+}
+
+.mdl-textfield__error {
+    width: 100%;
+    left: 0;
+ text-align: left;
+}
+
+.mdl-card__supporting-text {
+	padding-left: 40px;	
+}
+

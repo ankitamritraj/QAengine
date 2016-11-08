@@ -1,0 +1,47 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar-custom {
+    background-color: #2f364a;
+    height : 90px;
+}
+
+#logo {
+  float: left;
+  margin-left: 20px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #fff;
+  &:hover {
+  	text-decoration: none;
+  }
+}
+
+.navigation-list-menu {
+	background-color : #19202e;
+	height: 89px;
+	margin-right: 0%;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.navigation-list {
+	margin-top: 19px;
+	font-size: 16px;
+	height: 59px;
+	color: #78829d;
+	font-family: "Lato";
+	&:hover {
+		text-decoration: none;
+		transition : 2s
+	}
+}
+
+
+
+
