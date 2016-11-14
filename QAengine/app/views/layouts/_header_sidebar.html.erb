@@ -1,24 +1,34 @@
 <div class="first-border">
 	<ul class="sidebar-menu">
-		<li class="sidebar-menu-list">
-			<%= link_to "ASK A QUESTION", '/signup', class: "glyphicon glyphicon-plus btn btn-lg btn-primary sidebar-menu-list-items" %>
+		<% if logged_in? %>
+			<li class="right-sidebar-menu-list">
+				<%= link_to "ASK A QUESTION", root_url, class: "glyphicon glyphicon-plus btn btn-lg btn-primary right-sidebar-menu-list-items" %>
+				<hr>
+			</li>
+		<% else %>
+			<li class="right-sidebar-menu-list">
+				<%= link_to "ASK A QUESTION", login_path, class: "glyphicon glyphicon-plus btn btn-lg btn-primary right-sidebar-menu-list-items" %>
+				<hr>
+			</li>
+		<% end %>
+		<div class="horizontal-line-margin">
 			<hr>
+		</div>
+		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+			<span class="glyphicon glyphicon-question-sign glyphicons-color"></span>
+			<%= link_to "Questions", '#', class: " sidebar-menu-list-items-down" %>
 		</li>
-		<li class="sidebar-menu-list">
-			<%= link_to "ASK A QUESTION", '/signup', class: "glyphicon glyphicon-plus btn btn-lg btn-primary sidebar-menu-list-items" %>
-			<hr>
-		</li><li class="sidebar-menu-list">
-			<%= link_to "ASK A QUESTION", '/signup', class: "glyphicon glyphicon-plus btn btn-lg btn-primary sidebar-menu-list-items" %>
-			<hr>
-		</li><li class="sidebar-menu-list">
-			<%= link_to "ASK A QUESTION", '/signup', class: "glyphicon glyphicon-plus btn btn-lg btn-primary sidebar-menu-list-items" %>
-			<hr>
-		</li><li class="sidebar-menu-list">
-			<%= link_to "ASK A QUESTION", '/signup', class: "glyphicon glyphicon-plus btn btn-lg btn-primary sidebar-menu-list-items" %>
-			<hr>
+		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+			<span class="glyphicon glyphicon-tag glyphicons-color"></span>
+			<%= link_to "Tags", '#', class: " sidebar-menu-list-items-down" %>
 		</li>
-		<li>
-			<span class="glyphicon glyphicon-question-sign"></span>
+		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+			<span class="glyphicon glyphicon-list glyphicons-color"></span>
+			<%= link_to "Categories", '#', class: " sidebar-menu-list-items-down" %>
+		</li> 
+		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+			<span class="glyphicon glyphicon-user glyphicons-color"></span>
+			<%= link_to "Users", '#', class: " sidebar-menu-list-items-down" %>
 		</li>
 	</ul>
 </div>

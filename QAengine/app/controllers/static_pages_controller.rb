@@ -1,4 +1,14 @@
 class StaticPagesController < ApplicationController
   def home
+  	if logged_in?
+  		# @all_question = Question.all
+  		@user = User.all
+  		# debugger
+  		# @comm = @user.questions
+  		@question = current_user.questions.build
+  		@comment = current_user.comments.build
+  		@feed_items = Question.all
+  		
+  	end
   end
 end

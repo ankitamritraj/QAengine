@@ -1,0 +1,21 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.login-base-bar-login {
+	float:left;
+	margin-left: 15%;	
+}
+
+.login-base-bar-signup {
+	float:right;	
+	margin-right: 10%;
+}
+
+.login-header {
+	margin-left: 17%;
+}

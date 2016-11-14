@@ -7,7 +7,13 @@
 			<li><%= link_to "Blogs", '#', class: "navigation-list"%></li>
 			<li><%= link_to "Term", '#', class: "navigation-list"%></li>
 			<li><%= link_to "Contact", '#', class: "navigation-list"%></li>
-			<li><%= link_to "Login", '#', class: "navigation-list"%></li>
+			<% if logged_in? %>
+				<li><%= link_to "Profile", current_user, class: "navigation-list"%></li>
+				<li><%= link_to "Logout", logout_path,method: "delete", class: "navigation-list"%></li>
+				
+			<% else %>
+				<li><%= link_to "Login", login_path, class: "navigation-list"%></li>
+			<% end %>
 		</ul>
 	</nav>
 </header>

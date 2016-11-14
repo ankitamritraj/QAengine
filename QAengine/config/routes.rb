@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get '/signup', :to => "users#new"
-  post '/signup', :to => "users#create"
-  post '/login', :to => "users#create"
-
+  get 'users/new'
+  get 'sessions/new'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  resources :questions do
+  	member do
+		put "like" => "questions#upvote"
+		put "unlike" => "questions#downvote"  		
+  	end
+  end
+  resources :comments
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-

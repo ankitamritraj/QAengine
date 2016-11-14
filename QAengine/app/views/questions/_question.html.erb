@@ -1,33 +1,3 @@
-<% provide(:title, "QAengine")%>
-
-<% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-4">
-      	<section class="user_info">
-        	<%= link_to gravatar_for(current_user, size: 50), current_user %>
-			<h1><%= current_user.name %></h1>
-			<span>
-				<%= link_to "view my profile", current_user %>
-			</span>
-			<span>
-				<%= pluralize(current_user.questions.count, "Question") %>
-			</span>
-	    </section>
-      	<section class="question_form">
-        	<%= form_for @question, remote: true do |f| %>
-				<div id="field">
-				    <%= f.text_area :content, placeholder: "Ask A Question..." %>
-			    </div>
-			    <%= f.submit "Post", class: "btn btn-primary" %>
-			<% end %>
-	    </section>
-    </aside>
-  </div>
-    <div class="col-md-8">
-      <h3>Question Feed</h3>
-      	<% if @feed_items.any? %>
-	    	<ol class="microposts">
-				<% @feed_items.each do |question| %>
 					<li id="question-<%= question.id %>">
 						<%= link_to gravatar_for(question.user, size: 50), question.user %>
 						<span class="user">
@@ -56,7 +26,7 @@
 						<% if current_user == question.user %>
 					        <%= link_to "delete", question, method: :delete, data: { confirm: "You sure?" } %>
     					<% end %>
-    					<span class="comment-section">
+    					<span>
 							<% if question.comments.any? %>
 								<% question.comments.each do |c| %>
 									<hr>
@@ -77,9 +47,9 @@
 							<% else %>
 								Hello World;
 							<% end %>
-    						<%= form_for	(question.user.comments.build, remote: true) do |f| %>
+    						<%= form_for(question.user.comments.build) do |f| %>
 								<div class="field">
-								    <%= f.text_area :content, class: "comment-place-holder", placeholder: "Comment here..." %>
+								    <%= f.text_area :content, placeholder: "Comment here..." %>
 								    <%= f.number_field :question_id, :value => question.id %>
 							    </div>
 							    <%= f.submit "Post", class: "btn btn-primary" %>
@@ -87,10 +57,3 @@
     					</span>
 					</li>
 					<hr>
-				<% end %>
-			</ol>
-		<% end %>
-    </div>
-<% else %>
-  Sign up Now 
-<% end %>
