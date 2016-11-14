@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 			if(@comment.save)
 				flash[:success] = "Comment Posted Sucssessfully"
 				# alert();
-				format.html { redirect_to root_url}
+				format.html { redirect_to @comment.user}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
 				format.js 
 				# redirect_to root_url
