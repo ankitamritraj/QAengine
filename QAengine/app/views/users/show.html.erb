@@ -46,7 +46,7 @@
 										Posted <%= time_ago_in_words(c.created_at) %> ago.
 									</span> 
 									<% if current_user == c.user %>
-								        <%= link_to "delete", c , method: :delete, data: { confirm: "You sure?" }, remote: true %>
+								        <%= link_to "delete", c ,remote: true, method: :delete, data: { confirm: "You sure?" }%>
 			    					<% end %>
 		    					</span>
 							<% end %>

@@ -1,3 +1,4 @@
+<span class="current-comment-id-<%=comment.id%>">
 <hr>
 <span>
 	<%= link_to comment.user.name, comment.user%>
@@ -10,5 +11,6 @@
 	Posted <%= time_ago_in_words(comment.created_at) %> ago.
 </span> 
 <% if current_user == comment.user %>
-    <%= link_to "delete", comment , method: :delete, data: { confirm: "You sure?" } %>
+    <%= link_to "delete", comment , method: :delete, data: { confirm: "You sure?" }, remote: true %>
 <% end %>
+</span>

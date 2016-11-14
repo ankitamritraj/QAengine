@@ -28,7 +28,7 @@
       	<% if @feed_items.any? %>
 	    	<ol class="microposts">
 				<% @feed_items.each do |question| %>
-					<li id="question-<%=question.id%>">
+					<div id="question-<%=question.id%>">
 						<!-- <b>home mein question id = <%=question.id%></b> -->
 						<div id="after-delete-comment-<%=question.id%>">
 							<%= link_to gravatar_for(question.user, size: 50), question.user %>
@@ -58,7 +58,7 @@
 								Posted <%= time_ago_in_words(question.created_at) %> ago.
 							</span>
 							<% if current_user == question.user %>
-						        <%= link_to "delete", question, method: :delete, data: { confirm: "You sure?", remote: true } %>
+						        <%= link_to "delete", question, method: :delete, data: { confirm: "You sure?"}, remote: true %>
 	    					<% end %>
 	    					<span class="comment-section-<%=question.id%>">
 								<% if question.comments.any? %>
@@ -93,7 +93,7 @@
 	    					</span>
 							<hr>
 						</div>
-					</li>
+					</div>
 				<% end %>
 			</ol>
 		<% end %>
