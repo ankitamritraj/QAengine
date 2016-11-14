@@ -31,20 +31,35 @@ class QuestionsController < ApplicationController
 
 	def destroy
 		@question.destroy
-		flash[:success] = "Question deleted Successfully"
-		redirect_to root_url
+		# flash[:success] = "Question deleted Successfully"
+		respond_to do |format|
+				# alert();
+				flash[:success] = "Question Deleted Sucssessfully"
+				format.html { redirect_to root_url}
+				# format.json { render '../static_pages/show', status: :created, location: @question}
+				format.js
+		end
+		# redirect_to root_url
 	end
 
 	def upvote
 		@question = Question.all.find_by(id: params[:id])
 		@question.upvote_from current_user
-		redirect_to root_url
+		respond_to do |format|
+			format.html {redirect_to root_url}
+			format.js
+		end
+		# redirect_to root_url
 	end
 
 	def downvote
 		@question = Question.all.find_by(id: params[:id])
 		@question.downvote_from current_user
-		redirect_to root_url
+		respond_to do |format|
+			format.html {redirect_to root_url}
+			format.js
+		end
+		# redirect_to root_url
 	end
 
 	private

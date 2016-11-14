@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 			if(@comment.save)
 				flash[:success] = "Comment Posted Sucssessfully"
 				# alert();
-				format.html { redirect_to @comment.user}
+				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
 				format.js 
 				# redirect_to root_url
@@ -38,8 +38,15 @@ class CommentsController < ApplicationController
 
 	def destroy
 		@comment.destroy
-		flash[:success] = "Comment deleted Successfully"
-		redirect_to root_url
+		respond_to do |format|
+				# alert();
+				flash[:success] = "Comment deleted Successfully"
+				# flash[:success] = "Question Posted Sucssessfully"
+				format.html { redirect_to root_url}
+				# format.json { render '../static_pages/show', status: :created, location: @question}
+				format.js
+			end
+		# redirect_to root_url
 	end
 
 	private

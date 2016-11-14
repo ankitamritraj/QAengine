@@ -7,39 +7,64 @@
 	<% if @user.questions.any? %>
 		<h3>Questions (<%= @user.questions.count %>) </h3>
 		<% @questions.each do |question| %>
-			<li id="question-<%= question.id %>">
-				<%= link_to gravatar_for(question.user, size: 50), question.user %>
-				<span class="user"><%= link_to question.user.name, question.user %></span>
-				<span class="content"><%= question.content %></span>
-				<span class="timestamp">Posted <%= time_ago_in_words(question.created_at) %> ago.</span>
-				<span class="comment-section-<%=question.id%>">
-					<% if question.comments.any? %>
-						<% question.comments.each do |c| %>
-							<hr>
-							<span>
-								<%= link_to c.user.name, c.user%>
-							</span>	
-							<span>
-								<%= c.content %>
-							</span>
-							<span class="timestamp">
-								Posted <%= time_ago_in_words(c.created_at) %> ago.
-							</span> 
+			<li id="question-<%=question.id%>">
+				<div id="after-delete-comment-<%=question.id%>">
+					<%= link_to gravatar_for(question.user, size: 50), question.user %>
+					<span class="user"><%= link_to question.user.name, question.user %></span>
+					<span class="content"><%= question.content %></span>
+					<span class="like-question-<%=question.id%>">
+						<%= link_to like_question_path(question), class: "like", method: :put, remote: true  do%>
+							<button type="button" class="btn btn-info" area-label="Left-align">
+								<span class = "glyphicon glyphicon-thumbs-up glyphicon-align-center" area-hidden = "true"></span>
+								<span class="badge"><%= question.get_upvotes.size%></span>
+							</button> 
 						<% end %>
-					<% else %>
-						Hello World;
+
+						<%= link_to unlike_question_path(question.id), class: "like", method: :put, remote: true do %>
+							<button type="button" class="btn btn-info" area-label="Left-align">
+								<span class = "glyphicon glyphicon-thumbs-down glyphicon-align-center" area-hidden = "true"></span>
+								<span class="badge"><%= question.get_downvotes.size%></span>
+							</button> 
+						<% end %>
+					</span>
+					<span class="timestamp">Posted <%= time_ago_in_words(question.created_at) %> ago.</span>
+					<% if current_user == question.user %>
+				        <%= link_to "delete", question, method: :delete, data: { confirm: "You sure?", remote: true } %>
 					<% end %>
-					<%= form_for(question.user.comments.build, remote: true) do |f| %>
-						<div class="field">
-						    <%= f.text_area :content, placeholder: "Comment here..." %>
-						    <%= f.number_field :question_id, :value => question.id %>
-					    </div>
-					    <%= f.submit "Post", class: "btn btn-primary" %>
-					<% end %>
-				</span>
+					<span class="comment-section-<%=question.id%>">
+						<% if question.comments.any? %>
+							<% question.comments.each do |c| %>
+								<span class="current-comment-id-<%=c.id%>">
+									<hr>
+									<span>
+										<%= link_to c.user.name, c.user%>
+									</span>	
+									<span>
+										<%= c.content %>
+									</span>
+									<span class="timestamp">
+										Posted <%= time_ago_in_words(c.created_at) %> ago.
+									</span> 
+									<% if current_user == c.user %>
+								        <%= link_to "delete", c , method: :delete, data: { confirm: "You sure?" }, remote: true %>
+			    					<% end %>
+		    					</span>
+							<% end %>
+						<% else %>
+							Hello World;
+						<% end %>
+						<%= form_for(question.user.comments.build, remote: true) do |f| %>
+							<div class="field">
+							    <%= f.text_area :content, placeholder: "Comment here..." %>
+							    <%= f.number_field :question_id, :value => question.id %>
+						    </div>
+						    <%= f.submit "Post", class: "btn btn-primary" %>
+						<% end %>
+					</span>
+					<hr>
+				</div>
 			</li>
 			
-			<hr>
 		<% end %> 
 	<% else %>
 		Nothing to Show
