@@ -3,7 +3,12 @@
 	<%= gravatar_for @user%>
 	<%= @user.name%>
 </h1>
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>
+
 <div class = "col-md-8">
+	<%= render 'follow_form' if logged_in? %>
 	<% if @user.questions.any? %>
 		<h3>Questions (<%= @user.questions.count %>) </h3>
 		<% @questions.each do |question| %>
@@ -55,7 +60,7 @@
 						<% end %>
 						<%= form_for(question.user.comments.build, remote: true) do |f| %>
 							<div class="field">
-							    <%= f.text_area :content, placeholder: "Comment here..." %>
+							    <%= f.text_area :content,class: "clear-comment-field", placeholder: "Comment here..." %>
 							    <%= f.number_field :question_id, :value => question.id %>
 						    </div>
 						    <%= f.submit "Post", class: "btn btn-primary" %>

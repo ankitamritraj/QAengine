@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   		# @all_question = Question.all
   		@user = User.all
   		# debugger
+      @users = User.find(current_user.id)
   		# @comm = @user.questions
   		@question = current_user.questions.build
   		@comment = current_user.comments.build
