@@ -2,11 +2,16 @@
 	<%= link_to "QAengine", root_url, id: "logo" %>
 	<nav>
 		<ul class = "nav navbar-nav navbar-right navigation-list-menu">
+		<% if logged_in? %>
+		<li><div class="box"><%=form_tag search_users_path,class:"tag",:method => 'get'  do %>
+<%= text_field_tag :search,params[:search],placeholder:"search",class:"form"%>
+<%end%></div></li>
+<%end%>
 			<li><%= link_to "Home", root_path, class: "navigation-list"%></li>
 			<li><%= link_to "About Us", '#', class: "navigation-list"%></li>
 			<li><%= link_to "Blogs", '#', class: "navigation-list"%></li>
-			<li><%= link_to "Term", '#', class: "navigation-list"%></li>
-			<li><%= link_to "Contact", '#', class: "navigation-list"%></li>
+			<li><%= link_to "Term", '/term', class: "navigation-list"%></li>
+			<li><%= link_to "Contact", '/contact', class: "navigation-list"%></li>
 			<% if logged_in? %>
 				<li><%= link_to "Profile", current_user, class: "navigation-list"%></li>
 				<li><%= link_to "Logout", logout_path,method: "delete", class: "navigation-list"%></li>

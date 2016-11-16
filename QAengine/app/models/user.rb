@@ -23,7 +23,7 @@ class User < ApplicationRecord
 	validates :state, :presence => true
 	validates :institution, :presence => true
 	has_secure_password
-
+validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   def feed
     Question.where("user_id = ?", id)
   end
@@ -59,4 +59,10 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+ #def self.search(params)
+  # users=User.where(name_id: params[:name].to_i)
+   #users=User.where("name like ? or institution like ?","%#{params[:search]}%","%#{params[:search]}%" )if params[:search].present?
+   #users  
+  #end
 end
