@@ -1,34 +1,40 @@
-<div class="first-border">
-	<ul class="sidebar-menu">
-		<% if logged_in? %>
-			<li class="right-sidebar-menu-list">
-				<%= link_to "ASK A QUESTION", root_url, class: "glyphicon glyphicon-plus btn btn-lg btn-primary right-sidebar-menu-list-items" %>
-				<hr>
-			</li>
-		<% else %>
-			<li class="right-sidebar-menu-list">
-				<%= link_to "ASK A QUESTION", login_path, class: "glyphicon glyphicon-plus btn btn-lg btn-primary right-sidebar-menu-list-items" %>
-				<hr>
-			</li>
-		<% end %>
-		<div class="horizontal-line-margin">
-			<hr>
-		</div>
-		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
-			<span class="glyphicon glyphicon-question-sign glyphicons-color"></span>
-			<%= link_to "Questions", '#', class: " sidebar-menu-list-items-down" %>
+<ul class="leftnavbar">
+	<% if logged_in? %>
+		<li>
+			<%= link_to root_url, class:"btn btn-primary ask-button-size" do%>
+				<span class = "glyphicon glyphicon-plus"></span>
+				<span class="ask-button-content">Ask Question</span>
+			<% end %>
 		</li>
-		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
-			<span class="glyphicon glyphicon-tag glyphicons-color"></span>
-			<%= link_to "Tags", '#', class: " sidebar-menu-list-items-down" %>
+	<% else %>
+		<li>
+			<%= link_to login_path, class:"btn btn-lg btn-primary ask-button-size" do%>
+				<span class = "glyphicon glyphicon-plus"></span>
+				<span class="ask-button-content">Ask Question</span>
+			<% end %>
 		</li>
-		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
-			<span class="glyphicon glyphicon-list glyphicons-color"></span>
-			<%= link_to "Categories", '#', class: " sidebar-menu-list-items-down" %>
-		</li> 
-		<li class="sidebar-menu-list-down mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
-			<span class="glyphicon glyphicon-user glyphicons-color"></span>
-			<%= link_to "Users", '#', class: " sidebar-menu-list-items-down" %>
-		</li>
-	</ul>
-</div>
+	<% end %>
+	<div class="horizontal-line-margin">
+		<hr>
+	</div>
+
+
+	<li class="leftnavbar-lists mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+		<span class="glyphicon glyphicon-question-sign glyphicons-color"></span>
+		<%= link_to "Questions", '#', class: "leftnavbar-lists" %>
+	</li>
+	<li class="leftnavbar-lists mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+		<span class="glyphicon glyphicon-tag glyphicons-color"></span>
+		<%= link_to "Tags", '#', class: "leftnavbar-lists"%>
+	</li>
+	<li class="leftnavbar-lists mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+		<span class="glyphicon glyphicon-list glyphicons-color"></span>
+		<%= link_to "Categories", '#', class: "leftnavbar-lists"%>
+	</li> 
+	<li class="leftnavbar-lists mdl-button mdl-js-button mdl-js-ripple-effect tags-width">
+		<span class="glyphicon glyphicon-user glyphicons-color"></span>
+		<%= link_to "Users", '#', class: "leftnavbar-lists"%>
+	</li>
+</ul>
+
+<!-- *************************************************************************** -->

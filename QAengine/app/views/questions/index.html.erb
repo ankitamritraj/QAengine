@@ -1,0 +1,15 @@
+<h1>Question</h1>
+<div id="tag_cloud">
+<%tag_cloud Question.tag_counts,%w[s m l] do|tag,css_class|%>	
+<%link_to tag.name,tag_path(tag.name),class: css_class%>
+<%end%>
+</div>
+<div id="question">
+	<%@question.each do|var|%>
+	<h1><%=link_to var.user.name,var.user%><h1>
+	<%=simple_format var.content%>
+	<p>
+		Tags:<%=raw var.tag_list.map{|t| link_to t,tag_path(t)}.join(', ')%>
+	</p>
+	<%end%>
+</div>

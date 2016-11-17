@@ -1,0 +1,7 @@
+	<div class="check-status-<%=@question.id%>">
+		<% if @question.comments.any? %>
+			<p style="font-size: 140%;"><%= @question.comments.count%> Answers </p>
+		<% else %>
+			<p>Not Yet Answered</p>
+		<% end %>
+	</div>

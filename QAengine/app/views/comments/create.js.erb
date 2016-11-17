@@ -1,2 +1,4 @@
 $(".clear-comment-field").val('');
+$(".check-status-<%=@question.id%>").remove();
+$(".get-status-<%=@question.id%>").prepend("<%=j render 'update_ans_count' %>");
 $(".comment-section-<%=@comment.question_id%>").prepend("<%=j render @comment %>");

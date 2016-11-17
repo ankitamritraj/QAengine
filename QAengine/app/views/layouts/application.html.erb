@@ -17,18 +17,18 @@
   		<% flash.each do |message_type, message| %>
   			<div class="alert alert-<%=message_type%>"><%= message%></div>
   		<% end %>
-	<div class="mdl-grid wrapper">
-		<div class="col-md-2 header-sidebar">
+	<div class="wrapper">
+		<div class="header-sidebar">
 		  	<%= render 'layouts/header_sidebar' %>
 		</div>
-		<div class="col-md-8 mid-area">
+		<div class="mid-area">
 		    <%= yield %>
     </div>
-		<div class=" col-md-2 header-right-sidebar">
+		<div class="header-right-sidebar">
 		  	<%= render 'layouts/header_right_sidebar' %>
     </div>
+    <p class="clearme-left"></p>
 	</div>
-    <%= debug(params) if Rails.env.development? %> 
   </body>
   
 </html>

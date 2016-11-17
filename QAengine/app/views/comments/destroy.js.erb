@@ -1,1 +1,3 @@
 $(".current-comment-id-<%=@comment.id%>").remove();
+$(".check-status-<%=@question.id%>").remove();
+$(".get-status-<%=@question.id%>").prepend("<%=j render 'update_ans_count' %>");

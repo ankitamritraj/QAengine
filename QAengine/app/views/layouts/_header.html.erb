@@ -1,24 +1,24 @@
-<header class = "navbar navbar-custom">
+<div class="topnavbar">
 	<%= link_to "QAengine", root_url, id: "logo" %>
-	<nav>
-		<ul class = "nav navbar-nav navbar-right navigation-list-menu">
+	<ul class="topnavbar-rightside">
+		<% if logged_in?%>
+			<li class="topnavbar-rightlist search-field">
+				<%=form_tag search_users_path,class:"tag",:method => 'get'  do %>
+					<%= text_field_tag :search,params[:search],placeholder:"search",class:"form"%>
+				<%end%>
+			</li>
+		<%end%>
+		<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "Home", root_path, class: "topnavbar-rightlist-menu-items"%></li>
+		<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "About Us", '#', class: "topnavbar-rightlist-menu-items"%></li>
+		<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "Blogs", '#', class: "topnavbar-rightlist-menu-items"%></li>
+		<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "Term", '/term', class: "topnavbar-rightlist-menu-items"%></li>
+		<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "Contact", '/contact', class: "topnavbar-rightlist-menu-items"%></li>
 		<% if logged_in? %>
-		<li><div class="box"><%=form_tag search_users_path,class:"tag",:method => 'get'  do %>
-<%= text_field_tag :search,params[:search],placeholder:"search",class:"form"%>
-<%end%></div></li>
-<%end%>
-			<li><%= link_to "Home", root_path, class: "navigation-list"%></li>
-			<li><%= link_to "About Us", '#', class: "navigation-list"%></li>
-			<li><%= link_to "Blogs", '#', class: "navigation-list"%></li>
-			<li><%= link_to "Term", '/term', class: "navigation-list"%></li>
-			<li><%= link_to "Contact", '/contact', class: "navigation-list"%></li>
-			<% if logged_in? %>
-				<li><%= link_to "Profile", current_user, class: "navigation-list"%></li>
-				<li><%= link_to "Logout", logout_path,method: "delete", class: "navigation-list"%></li>
-				
-			<% else %>
-				<li><%= link_to "Login", login_path, class: "navigation-list"%></li>
-			<% end %>
-		</ul>
-	</nav>
-</header>
+			<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "Profile", current_user, class: "topnavbar-rightlist-menu-items"%></li>
+			<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "Logout", logout_path,method: "delete", class: "topnavbar-rightlist-menu-items"%></li>	
+		<% else %>
+			<li class="topnavbar-rightlist topnavbar-rightlist-middle"><%= link_to "Login", login_path, class: "topnavbar-rightlist-menu-items"%></li>
+		<% end %>
+	</ul>
+	<p class="clearme-right"></p>
+</div>

@@ -14,6 +14,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'material_design_lite-sass'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+#gem 'protected_attributes'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,8 +31,12 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+
+gem 'acts-as-taggable-on'
+
 #acts_AS_Votable
 gem 'acts_as_votable'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

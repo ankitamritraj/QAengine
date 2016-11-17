@@ -1,16 +1,19 @@
-<span class="current-comment-id-<%=comment.id%>">
-<hr>
-<span>
-	<%= link_to comment.user.name, comment.user%>
-</span>	
-<span>
-	<%= comment.content %>
-</span>
+<p class="current-comment-id-<%=comment.id%> comment-feed">
+	<span style="margin-right: 1%;">
+		<%= link_to comment.user.name, comment.user%>
+	</span>	
+	<span class="comment-content">
+		<%= comment.content %>
+		<% if current_user == comment.user %>
+	        <%= link_to comment , method: :delete, data: { confirm: "You sure?" }, remote: true do %>
+	        	<span class="glyphicon glyphicon-remove", style="padding-left: 1%;"></span>
+	        <% end %>
+		<% end %>
+	</span>
 
-<span class="timestamp">
-	Posted <%= time_ago_in_words(comment.created_at) %> ago.
-</span> 
-<% if current_user == comment.user %>
-    <%= link_to "delete", comment , method: :delete, data: { confirm: "You sure?" }, remote: true %>
-<% end %>
-</span>
+	<span class="timestamp-comment">
+		<%= time_ago_in_words(comment.created_at) %> ago
+	</span> 
+	<!-- <hr style="margin-top:1%;margin-bottom:1%;"> -->
+	<p class="clearme-right"></p>
+</p>

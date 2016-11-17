@@ -23,70 +23,362 @@
 	padding-top: 10px;
 }
 */
-.first-border {
-	border-right: 1px solid gray;
-	height: 100%;
-	/*position: relative;*/
+ul li {
+	margin: 0;
 }
 
-.sidebar-menu {
+li {
+	padding: 0;
+}
+
+/*---------------------Top Navigation Bar-----------------------*/
+.topnavbar {
+	background: #2f364a;
+	height: 90px;
+}
+
+.topnavbar-rightside {
+	float: right;
+	background-color: #19202e;
+	list-style: none;
+	margin-bottom: 0px;
+	vertical-align: middle;
+}
+
+.search-field {
+	margin-top: 24px;
+	margin-right: 28px;
+}
+
+.topnavbar-rightlist {
+	float: left;
+}
+
+.topnavbar-rightlist-middle {
+	padding-top: 34px;
+	margin-top: 0px;
+	padding-bottom: 31px;
+	margin-right: 26px;
+}
+
+.topnavbar-rightlist-menu-items {
+	font-size: 15px;
+	font-family: "Lato";
+	color: #73788c;
+}
+
+.topnavbar-rightlist-menu-items:hover {
+	text-decoration: none;
+	color: #ededed;
+}
+
+.clearme-right {
+	clear:right;
+	margin: 0;
+}
+
+.clearme-left {
+	clear:left;
+	margin: 0;
+}
+
+#logo {
+  float: left;
+  margin-left: 20px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #fff;
+}
+
+#logo:hover {
+	text-decoration: none;
+	color: #ededed;
+}
+
+/*-------------------------Top Navigation Bar completed----------------------*/
+
+/*-------------------------Wrapping Element inside Application.html.erb----------------------*/
+
+.wrapper {
+	padding-top: 1%;
+}
+
+.header-sidebar {
+	height :100%;
+	float: left;
+	width: 15%;
+}
+
+.mid-area {
+	float: left;
+	width: 70%;
+	border-left: 1px solid grey;
+	background-color: #fbfcff;
+	/*border-right: 1px solid grey;*/
+}
+
+.header-right-sidebar {
+	float: left;
+	width: 15%;
+}
+
+/*--------------------------------------------------------------------------------*/
+
+/*--------------------------------Left Navbar ------------------------------------*/
+.leftnavbar {
 	padding-left: 5%;
+	padding-right: 5%;
+	border: 0px;
 }
 
-.sidebar-menu-list{
-	list-style: none;
-	width: 95%;
-	padding-left: 9%;
-}
-.horizontal-line-margin {
-	margin-right: 7%;
-}
-.sidebar-menu-list-down {
-	margin-bottom: 20px;
-	list-style: none;
+
+.ask-button-size {
+	width: 100%;
+	padding-left: 0%;
+	padding-right: 0%;
+	padding-top: 6%;
+	padding-bottom: 6%;
+	border: 0%;
+	height: 12%;
 }
 
 .glyphicon-plus {
-	font-size: 65%;
+	font-size: 110%;
 }
 
-.sidebar-menu-list-items {
-	font-family: inherit;
-	color: white;
-	font-size: 70%;
-	width: 95%;
-	padding-top: 7%;
-	margin-top: 8%;	
-	margin-right: 8%;
-}
-.sidebar-menu-list-items-down:hover {
-	text-decoration:none;
-}
-
-.right-first-border {
-	border-left: 1px solid gray;
-	height: 100%;
-	padding: 10px;
+.ask-button-content {
 	position: relative;
+	font-size: 120%;
+	margin: 5%;
 }
 
-.right-sidebar-menu {
-	padding-left: 10px;
+.leftnavbar-lists {
+	/*padding-top: 20%;*/
+	margin-bottom: 10%;
+	padding-bottom: 200%;
+	/*align-items: center;*/
 }
 
-.right-sidebar-menu-list {
+.horizontal-line-margin {
+	margin-bottom: 5%;
+}
+
+.leftnavbar-lists {
+	padding-bottom: 20%;
+}
+
+hr {
+	margin-bottom: 0%;
+}
+.tags-width {
+	width: 100%;
+	text-align: left;
+}
+/*--------------------------------------------------------------------------------*/
+
+/*-----------------------------Right Sidebar Menu---------------------------------*/
+	
+.rightnavbar {
 	list-style: none;
-}
-.right-sidebar-menu-list-items {
-	font-family: inherit;
-	font-size: 15px;
-	width: 95%;
-	height: 50px;
-	padding-top: 15px;
-	margin-top: 10px;	
-	margin-right: 10px;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 10%;
+	background-color: #eef1f7;
+	height: 100%;
+}	
+
+.count-values {
+	font-size: 230%;
+	font-family: "Lato";
+	color: black;
 }
 
+.count-values:hover {
+	text-decoration: none;
+}
+
+
+.count-question {
+	border-left: 5px solid #3498db;
+	padding-left: 10%;
+}
+
+.count-following {
+	margin-top: 15%;
+	border-left: 5px solid #f2a62e;
+	padding-left: 10%;
+}
+
+.count-followers {
+	margin-top: 15%;
+	border-left: 5px solid #3498db;
+	padding-left: 10%;
+}
+
+.count-member {
+	margin-top: 15%;
+	padding-left: 10%;
+	border-left: 5px solid #f2a62e;
+}
+
+.count-text {
+	font-family: "Lato";
+	font-size: 100%;
+	color: #7a838e;
+}
+
+/*--------------------------------------------------------------------------------*/
+
+/*---------------------------------Home Page CSS----------------------------------*/
+
+
+/*-------Top Question Bar------ */
+.gravatar {
+	border-radius: 60%;
+	/*border:1px solid black;*/
+	z-index: 100;
+}
+
+.question-feed {
+	width: 100%;
+}
+
+.question-form {
+	margin-bottom: 1%;
+}
+
+.question-form-button {
+	float: right;
+	margin-top: 1%;
+	margin-right: 13.5%;
+}
+
+.question-form-button-size {
+	width: 150%;
+}
+
+.question-form-field {
+	width: 90%;
+	height: 70px;
+	border:0.6px solid gray-lighter;
+	border-radius:10px;
+	outline: none;
+	padding-left: 1%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+}
+
+.tags-form-field {
+	width: 40%;
+	margin-bottom: 3%;
+	margin-top: 1%;
+	border-radius:10px;
+	border-style: groove;
+	outline: none;
+	padding-left: 1%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+}
+
+.like:hover {
+	text-decoration: none;
+}
+/*-------------------------------*/
+
+/*-----Display Question Feed section---*/
+
+.content {
+	padding-left: 5%;
+	padding-right: 5%;
+	color: #31353B;
+	font-family: "Lato";
+	font-size: 14px;
+	/*letter-spacing: 1px;*/
+	/*width: 100%;*/
+}
+
+.nthchild-option:nth-child(odd) {
+	background-color: #f4f5f9;
+}
+
+.nthchild-option:nth-child(even) {
+	background-color: #eef1f7;
+}
+
+.microposts {
+	padding-left: 0px;
+}
+
+.timestamp-question {
+	float: right;
+	margin-bottom: 0px;
+	margin-right: 4.1%;
+	font-size: 85%;
+}
+
+.question-tags {
+
+}
+/*--------------------------------*/
+
+/*-----Display comment section---*/
+
+.comment-field-id {
+	display: none;
+}
+
+.comment-feed {
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 1%;
+	border-bottom: 0.5px solid gray;
+}
+
+.timestamp-comment {
+	float: right;
+	margin-bottom: 0px;
+	margin-right: 0%;
+	font-size: 85%;	
+}
+
+.comment-content {
+	/*padding-left: 1%;*/
+	color: #31353B;
+	font-family: "Lato";
+	font-size: 14px;
+	/*letter-spacing: 1px;*/
+	/*width: 100%;*/
+}
+
+.comment-field {
+	margin-left: 5%;
+}
+
+.comment-field-form {
+	width: 80%;
+	height: 40px;
+	border:0.6px solid gray-lighter;
+	border-radius:10px;
+	outline: none;
+	padding-left: 1%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	/*box-sizing:border-box;*/
+	}
+
+.comment-post-button {
+	float: right;
+	margin-right: 10%;
+	/*margin-bottom: 5%;*/
+}
+
+.comment-post-button-size {
+	width: 150%;
+}
+/*-------------------------------*/
+
+/*--------------------------------------------------------------------------------*/
 
 
 .mdl-layout {
@@ -102,14 +394,8 @@
 	color: #7d8aaf;
 }
 
-.glyphicon {
-	margin-right: 14px;
-}
 
-.tags-width {
-	width: 100%;
-	text-align: left;
-}
+
 .check{
 	margin-right:85px;
 }
@@ -123,34 +409,6 @@ body
 	margin-left: auto;
 }
 
-.wrapper {
-	/*display: inline-block;	*/
-	width: 100%;
-	/*height: 100%;*/
-}
-
-.header-sidebar {
-	height :100%;
-	/*float: left;*/
-	/*width: 15%;*/
-	/*z-index: 1;*/
-}
-
-.mid-area {
-	/*float: left;*/
-	/*float: left;*/
-	height: 100%;
-	/*width: 70%;*/
-	/*z-index: 0;*/
-	/*position: relative;*/
-	/*background-color: red;*/
-}
-
-.header-right-sidebar {
-	width: 15%;
-	/*float: right;*/
-	/*background-color: red;*/
-}
 
 img:hover
 {
@@ -244,9 +502,18 @@ img:hover
 }
 .tag::-webkit-input-placeholder {
 	color: #999;
+
 }
 .box
 {
 	padding-top: 25px;
 	padding-right: 30px;
+}
+#tag_cloud
+{
+	width: 400px;
+	line-height: 1.6em;
+	.s{font-size: 0.8em;}
+	.m{font-size: 1.2em;}
+	.l{font-size: 1.8em;}
 }

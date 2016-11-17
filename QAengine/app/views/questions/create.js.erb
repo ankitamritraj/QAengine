@@ -1,2 +1,5 @@
-$(".clear-question-field").val('');
+$(".question-form-field").val('');
+$(".tags-form-field").val('');
 $(".microposts").prepend("<%=j render @question %>");
+$(".rightnavbar").remove();
+$(".check-right-navbar").prepend("<%=j render 'update_right_navbar' %>")

@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
 	before_action :correct_user, only: :destroy
 	def create
 		@comment = current_user.comments.build(comment_params)
+		@question = @comment.question
+
 		# @comment.question_id = @comment.question.question_id
 		
 
@@ -37,6 +39,7 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
+		@question = @comment.question
 		@comment.destroy
 		respond_to do |format|
 				# alert();

@@ -3,11 +3,17 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   def new
   	@user = User.new
+    @questions = Question.all
+    @questions_all = Question.all
+    @user_all = User.all
   end
 
   def show
   	@user = User.find(params[:id])
+    @users = User.find(params[:id]) 
     @questions = @user.questions
+    @user_all = User.all
+    @following_users = @user
     # @comments = @questions.comments
   end
 
@@ -28,20 +34,30 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user  = User.find(params[:id])
+    @user = current_user
+    # @user  = User.find(params[:id])
     @users = @user.following
+    @following_users = @user
+    @questions = Question.all
+    @user_all = User.all
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
-    @user  = User.find(params[:id])
+    @user = current_user
     @users = @user.followers
+    @following_users = @user
+    @questions = Question.all
+    @user_all = User.all
     render 'show_follow'
   end
 
   def search
     #@users=User.search(params)
+    @questions = current_user.questions
+    @following_users = current_user
+    @user_all = User.all
     @users=User.where("name LIKE ?","#{params[:search]}%")
   end
 
