@@ -4,13 +4,13 @@ class CommentsController < ApplicationController
 	def create
 		@comment = current_user.comments.build(comment_params)
 		@question = @comment.question
-
+		
 		# @comment.question_id = @comment.question.question_id
 		
 
 		respond_to do |format|
 			if(@comment.save)
-				flash[:success] = "Comment Posted Sucssessfully"
+				#flash[:success] = "Comment Posted Sucssessfully"
 				# alert();
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
@@ -20,22 +20,8 @@ class CommentsController < ApplicationController
 				format.html { redirect_to root_url}
 				# redirect_to root_url
 				format.js
-			end
-				
+			end	
 		end
-
-
-		# if(@comment.save)
-		# 	flash[:success] = "Comment Posted Sucssessfully"
-		# 	redirect_to root_url
-		# else
-		# 	if(@comment.question_id == nil)
-		# 	# @feed_items = []
-		# 		redirect_to current_user
-		# 	else
-		# 		redirect_to login_url
-		# 	end
-		# end
 	end
 
 	def destroy
@@ -43,7 +29,7 @@ class CommentsController < ApplicationController
 		@comment.destroy
 		respond_to do |format|
 				# alert();
-				flash[:success] = "Comment deleted Successfully"
+			#	flash[:success] = "Comment deleted Successfully"
 				# flash[:success] = "Question Posted Sucssessfully"
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}

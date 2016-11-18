@@ -1,10 +1,9 @@
-<div class="check-right-navbar">
-	<ul class="rightnavbar">
+<ul class="rightnavbar">
 		<% if logged_in? %>
 			<li class="count-question">
 				<p class="count-text">Questions</p>
 					<div class="count-values">
-						<%= @questions.count %>
+						<%= @user_questions.count %>
 					</div>
 			</li>
 			<li class="count-following">
@@ -13,21 +12,37 @@
 					    <%= @following_users.following.count %>
 				    </a>
 			</li>
-			<li class="count-followers">
+			<li class="count-followers"">
 					<p class="count-text">Followers</p>
 					<a href="<%= followers_user_path(@following_users) %>", class="count-values">
 					    <%= @following_users.followers.count %>
 				    </a>
 			</li>
-			
-		<% else %>
+
+
+			<li class="count-following" style="margin-bottom:10%;">
+					<p class="count-text">Trending</p>
+					<p class="count-values">10</p>
+				
+					 		<div class="trend">
+					 <ul style="padding-left: 5px;">
+					 		<%tag_cloud ActsAsTaggableOn::Tag.most_used(10),%w[s m l] do|tag,css_class|%>	
+					 	<li style="list-style-type: none;">
+							<span ><%=link_to tag.name,tag_path(tag.name),class: css_class%></span>
+					 	</li>
+							<%end%>
+					 </ul>
+					 		</div>
+			</li>
+
+		<%else%>
 			<li class="count-question">
 				<p class="count-text">Questions</p>
 					<div class="count-values">
 						<%= @questions_all.count %>
 					</div>
 			</li>
-			<li class="count-member">
+			<li class="count-member", style="margin-bottom:10%;">
 					<p class="count-text">Members</p>
 					<div class="count-values">
 						<%= @user_all.count %>	
@@ -35,6 +50,5 @@
 			</li>
 		<% end %>
 	</ul>
-</div>
 
 <!-- ************************************************ -->

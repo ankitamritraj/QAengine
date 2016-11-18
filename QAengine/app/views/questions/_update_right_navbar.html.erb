@@ -19,6 +19,20 @@
 					    <%= @following_users.followers.count %>
 				    </a>
 			</li>
+			<li class="count-following", style="margin-bottom:10%;">
+					<p class="count-text">Trending</p>
+					<p class="count-values">10</p>
+				
+					 		<div class="trend">
+					 <ul style="padding-left: 5px;">
+					 		<%tag_cloud ActsAsTaggableOn::Tag.most_used(10),%w[s m l] do|tag,css_class|%>	
+					 	<li style="list-style-type: none;">
+							<span ><%=link_to tag.name,tag_path(tag.name),class: css_class%></span>
+					 	</li>
+							<%end%>
+					 </ul>
+					 		</div>
+			</li>
 			
 		<% else %>
 			<li class="count-question">
@@ -28,10 +42,10 @@
 					</div>
 			</li>
 			<li class="count-member">
-					<p class="count-text">Members</p>
-					<div class="count-values">
-						<%= @user_all.count %>	
-					</div>
+				<p class="count-text">Members</p>
+				<div class="count-values">
+					<%= @user_all.count %>	
+				</div>
 			</li>
 		<% end %>
 	</ul>

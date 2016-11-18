@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
 	def create
 		@question = current_user.questions.build(question_params)
 		@questions = Question.all
-		@following_users = current_user# if(@question.save)
+		@following_users = current_user
+		@user_questions = current_user.questions
+		# if(@question.save)
 		# 	flash[:success] = "Question Posted Sucssessfully"
 		# 	redirect_to root_url
 		# else
@@ -16,7 +18,7 @@ class QuestionsController < ApplicationController
 		respond_to do |format|
 			if(@question.save)
 				# alert();
-				flash[:success] = "Question Posted Sucssessfully"
+				#flash[:success] = "Question Posted Sucssessfully"
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
 				format.js 
@@ -36,17 +38,21 @@ class QuestionsController < ApplicationController
 			@questions = Question.all
 			@users = current_user
 			@following_users = current_user
-			else
-		@question=Question.all
-	end
+			@user_questions = current_user.questions
+		else
+			@question=Question.all
+		end
 	end
 
 	def destroy
 		@question.destroy
+		@questions = Question.all
+		@following_users = current_user
+		@user_questions = current_user.questions
 		# flash[:success] = "Question deleted Successfully"
 		respond_to do |format|
 				# alert();
-				flash[:success] = "Question Deleted Sucssessfully"
+			#	flash[:success] = "Question Deleted Sucssessfully"
 				format.html { redirect_to root_url}
 				# format.json { render '../static_pages/show', status: :created, location: @question}
 				format.js
@@ -74,6 +80,16 @@ class QuestionsController < ApplicationController
 		# redirect_to root_url
 	end
 
+		def qsearch
+			@questions = Question.all
+			@following_users = current_user
+	    	@user_questions = current_user.questions
+	    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
+			if params[:qsearch]
+				@questions=Question.tagged_with(params[:qsearch])
+   			end
+  		end
+
 	private
 		def question_params
 			params.require(:question).permit(:content,:tag_list)
@@ -83,4 +99,6 @@ class QuestionsController < ApplicationController
 			@question = current_user.questions.find_by(id: params[:id])
 			redirect_to root_url if @question.nil?
 		end
+
+		
 end

@@ -1,1 +1,4 @@
 $("#question-<%=@question.id%>").remove();
+$(".rightnavbar").remove();
+$(".header-right-sidebar").prepend("<%=j render 'update_right_navbar' %>");
+

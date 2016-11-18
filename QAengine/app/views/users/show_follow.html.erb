@@ -1,5 +1,44 @@
 <% provide(:title, @title) %>
-<div class="row">
+<div class="question-feed">
+  
+  <div class="current-user-section row">
+    <div class="user-info col-md-6">
+      <%=link_to gravatar_for(@user, size: 80), @user%>
+      <h1 style="margin-top:10px;"><%= @user.name %></h1>
+      <span><b>Questions:</b> <%= @user.questions.count %></span>
+      <span>
+        <%= render 'shared/stats' %> 
+      </span>
+    </div>
+    <div class="stats col-md-6">
+      <p style="font-size: 120%; padding-left: 35%;""><%=@title%> Users</p>
+      <% if @users.any? %>
+        <div class="user-avatars">
+          <% @users.each do |user| %>
+            <%= link_to gravatar_for(user, size: 30), user, class: "each-user-follo" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="current-user-following">
+    <h3 style="margin-left: 2%;"><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users-follow-panel">
+        <% @users.each do |f| %>
+          <li class="show-all-followers", style="width:33%;margin-bottom: 3%;">
+            <%= link_to gravatar_for(f, size: 50), f %>
+            <%= link_to f.name, f %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+</div>
+<!-- <div class="question-feed">
   <aside class="col-md-4">
     <section class="user_info">
       <%= gravatar_for @user %>
@@ -32,3 +71,4 @@
     <% end %>
   </div>
 </div>
+ -->

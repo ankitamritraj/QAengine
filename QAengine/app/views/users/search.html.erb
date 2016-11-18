@@ -1,21 +1,22 @@
   <%if @users.empty?%>
-<h1>No users found</h1>
+<h1>No user found</h1>
 <%else%>
-  <% @users.each do |user| %>
- <ul >
-    <li class="users">
-      <%= link_to gravatar_for(user, size: 100), user %>
-      <div class="prof">
-      <%=user.name%>
-      <br>
-      <%=user.city%>
-      <br>
-      <%=user.state%>
-      <br>
-      <%=user.institution%>
-      </div>
-    </li>
-</ul>
-  <% end %>
+  <div class="search-all-user", style="padding-left: 2%;">
+    <p style="margin-left: 1%;font-size: 220%;margin-bottom: 5%;">Search Result</p>
+    <% @users.each do |user| %>
+          <div class="users-profile-data">
+            <div class="search-profile-gravatar">
+              <%= link_to gravatar_for(user, size: 80), user %>
+            </div>
+            <div class="users-profile-collective">
+              <span ><%=user.name%></span><br>
+              <span><%=user.city%></span><br>
+              <span><%=user.state%></span><br>
+              <span><%=user.institution%></span>
+            <!-- <p class="clearme-right"></p> -->
+            </div>
+          </div>
+    <% end %>
+  </div>
   <br>
   <%end%>

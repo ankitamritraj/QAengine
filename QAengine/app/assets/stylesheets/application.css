@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -256,6 +256,7 @@ hr {
 
 .question-form-button-size {
 	width: 150%;
+	border-radius: 50px;
 }
 
 .question-form-field {
@@ -332,7 +333,7 @@ hr {
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 1%;
-	border-bottom: 0.5px solid gray;
+	border-bottom: 0.5px solid #d6d7d8;
 }
 
 .timestamp-comment {
@@ -375,10 +376,210 @@ hr {
 
 .comment-post-button-size {
 	width: 150%;
+	border-radius: 50px;
 }
 /*-------------------------------*/
 
 /*--------------------------------------------------------------------------------*/
+
+/*---------------------------------Profile Page-----------------------------------*/
+
+.follow-button-size {
+	float: right;
+	position: relative;
+	top: 143px;
+	right:8%;
+	/*padding-left: 2%;*/
+	/*padding-right: 2%;*/
+	border-radius: 50px;
+	/*margin-top: 20%;*/
+	width: 10%;
+	margin-left: 2%;
+	margin-top: 1%;
+
+}
+
+/*--------------------------------------------------------------------------------*/
+
+/*-----------------------------Following/Followers Page---------------------------*/
+
+.current-user-section {
+	width: 96%;
+	margin-left: 1%;
+	margin-top: 1%;
+}
+
+.user-info {
+	/*width: 30%;*/
+}
+
+.user-avatars{
+	margin-right: 4%;
+	/*float: right;*/
+}
+
+.stats {
+	/*float: right;*/
+}
+
+.current-user-following {
+	margin-left: 1%;
+	/*float: right;*/
+	/*padding-bottom: 30%;*/
+}
+
+.users-follow-panel {
+	list-style: none;
+	width: 93%;
+	margin-top: 2%;
+	padding-top: 2%;
+}
+
+.show-all-followers {
+	float: left;
+}
+
+
+/*--------------------------------------------------------------------------------*/
+
+/*---------------------------------Search Page------------------------------------*/
+
+.search-all-user {
+	margin-top: 2%;
+	margin-left: 1%;
+}
+
+.users-profile {
+	list-style: none;
+	width: 100%;
+	padding-left: 1%;
+}
+
+.users-profile-collective {
+	float: left;
+	/*margin-bottom: 5%;*/
+}
+
+.search-profile-gravatar {
+	float: left;
+	margin-right: 3%;
+}
+
+/*.search-profile-gravatar {
+	margin: 1%;
+}
+*/
+.users-profile-data {
+	float: left;
+	margin-bottom: 4%;
+	width: 50%;
+	/*margin-left: 3%;*/
+}
+
+/*--------------------------------------------------------------------------------*/
+
+/*-----------------------------hide show button-----------------------------------*/
+
+.hide-show-button {
+	margin-left: 5%;
+	color:#3498db;
+	font-size: 80%;
+}
+
+.hide-show-button:hover{
+	text-decoration: underline;
+}
+
+/*--------------------------------------------------------------------------------*/
+
+/*-------------------------------Search Bar Effects--------------------------------*/
+
+.form-second {
+	background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 40%;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+.form-second:focus {
+	width: 50%;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+.form-second {
+	/*width:100px;*/
+	outline: none;
+}
+
+.search-button {
+	border-radius: 30px;
+}
+
+.form {
+	background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 150px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+.form:focus {
+	width: 250px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+/*--------------------------------------------------------------------------------*/
+
+/*----------------------------Twitter and facebook--------------------------------*/
+
+.fb {
+	height: 20%;
+	width: 20%;
+	margin-left: 5%;
+	margin-right: 10%;
+}
+
+.twitter {
+	height: 22%;
+	width: 22%;
+	margin-left: 4%;
+	margin-right: 4%;
+}
+
+.github {
+	height: 20%;
+	width: 20%;
+	margin-left: 4%;
+	margin-right: 10%;
+}
+
+.image-size {
+	height: 100%;
+}
+/*--------------------------------------------------------------------------------*/
+
 
 
 .mdl-layout {
@@ -415,11 +616,6 @@ img:hover
 	opacity: 0.5;
 }
 
-.image
-{
-	padding-left: 300px;
-	margin-top: 200px;
-}
 #contact
 {
 	color: #337ab7;
@@ -433,18 +629,7 @@ img:hover
 {
 	color: black;
 }
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
-.prof{
-	float: left;
-}
+
 
 
 
@@ -460,40 +645,21 @@ img:hover
 .tag {
 	outline: none;
 }
-.form {
-	-webkit-appearance: textfield;
-	-webkit-box-sizing: content-box;
-	font-family: inherit;
-	font-size: 100%;
-}
+
+
+
+
 .tag::-webkit-search-decoration,
 .tag::-webkit-search-cancel-button {
 	display: none; 
 }
 
-
 .form {
-	background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-	border: solid 1px #ccc;
-	padding: 9px 10px 9px 32px;
-	width: 150px;
-	
-	-webkit-border-radius: 10em;
-	-moz-border-radius: 10em;
-	border-radius: 10em;
-	
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	transition: all .5s;
-}
-.form:focus {
-	width: 250px;
-	background-color: #fff;
-	border-color: #66CC75;
-	
-	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+	outline: none;
 }
 
 
@@ -509,11 +675,14 @@ img:hover
 	padding-top: 25px;
 	padding-right: 30px;
 }
-#tag_cloud
+
+.tag_cloud
 {
-	width: 400px;
-	line-height: 1.6em;
-	.s{font-size: 0.8em;}
-	.m{font-size: 1.2em;}
-	.l{font-size: 1.8em;}
+	width: 700px;
+}
+.trend
+{
+	width:80%;
+	margin-left:2px;
+	padding-right: 1px;
 }
