@@ -33,14 +33,18 @@ class QuestionsController < ApplicationController
 		end
 	end
 	def index
-		if params[:tag]
-			@question=Question.tagged_with(params[:tag])
-			@questions = Question.all
-			@users = current_user
-			@following_users = current_user
-			@user_questions = current_user.questions
+		if logged_in?
+			if params[:tag]
+				@question=Question.tagged_with(params[:tag])
+				@questions = Question.all
+				@users = current_user
+				@following_users = current_user
+				@user_questions = current_user.questions
+			else
+				@question=Question.all
+			end
 		else
-			@question=Question.all
+			redirect_to login_path
 		end
 	end
 
@@ -81,13 +85,17 @@ class QuestionsController < ApplicationController
 	end
 
 		def qsearch
-			@questions = Question.all
-			@following_users = current_user
-	    	@user_questions = current_user.questions
-	    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
-			if params[:qsearch]
-				@questions=Question.tagged_with(params[:qsearch])
-   			end
+			if logged_in?
+				@questions = Question.all
+				@following_users = current_user
+		    	@user_questions = current_user.questions
+		    	@question=Question.where("content LIKE ?","%#{params[:qsearch]}%")
+				if params[:qsearch]
+					@questions=Question.tagged_with(params[:qsearch])
+	   			end
+	   		else
+	   			redirect_to login_path
+	   		end
   		end
 
 	private

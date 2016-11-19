@@ -27,6 +27,9 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_params)
+    @questions_all = Question.all
+    @user_all = User.all
+    
   	if @user.save
   		log_in @user
       flash[:success] = "Weclome to QAengine"
@@ -38,14 +41,17 @@ class UsersController < ApplicationController
 
   def edit
     @user=User.find(params[:id])
+     @following_users = current_user
+    @user_questions = current_user.questions
   end
 
   def following
     @title = "Following"
-    @user = current_user
+    # @user = current_user
+    @user = User.find(params[:id])
     # @user  = User.find(params[:id])
     @users = @user.following
-    @following_users = @user
+    @following_users = current_user
     @user_questions = current_user.questions
     @questions = Question.all
     @user_all = User.all
@@ -53,10 +59,12 @@ class UsersController < ApplicationController
   end
 
   def followers
+
     @title = "Followers"
-    @user = current_user
+    @user = User.find(params[:id])
+    # @user = current_user
     @users = @user.followers
-    @following_users = @user
+    @following_users = current_user
     @user_questions = current_user.questions
     @questions = Question.all
     @user_all = User.all
@@ -78,6 +86,8 @@ class UsersController < ApplicationController
 
 def update
     @user = User.find(params[:id])
+    @following_users = current_user
+    @user_questions = current_user.questions
     if @user.update_attributes(user_params)
        flash[:success] = "Profile updated"
       redirect_to @user

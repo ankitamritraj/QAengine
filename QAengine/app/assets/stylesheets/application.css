@@ -541,6 +541,7 @@ hr {
 	transition: all .5s;
 }
 .form:focus {
+	color: black;
 	width: 250px;
 	background-color: #fff;
 	border-color: #66CC75;

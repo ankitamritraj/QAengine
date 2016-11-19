@@ -30,8 +30,13 @@ class StaticPagesController < ApplicationController
       @user_questions = Question.all
   end
   def tagcloud
+    if logged_in?
        @following_users = current_user
         @user_questions = current_user.questions
+    else
+      redirect_to login_path
+    end
+
   end
 
   def help
